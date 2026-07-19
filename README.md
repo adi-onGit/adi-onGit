@@ -100,65 +100,6 @@
   <img src="assets/divider.svg" width="100%" />
 </div>
 
-<!-- ================= FEATURED PROJECTS ================= -->
-<h2 align="center" style="color: #7C3AED; font-family: monospace;">[0x02] DEPLOYED ARCHITECTURES</h2>
-
-<!-- Project 1 -->
-<h3 style="color: #D946EF; font-family: monospace; margin-top: 0;">01. Expense Tracker</h3>
-<p style="color: #F8FAFC; font-size: 14px;">A smart, cyberpunk-themed financial assistant providing real-time data visualisations of cashflow, smart budgets, and categorized savings plans.</p>
-<p style="color: #A1A1AA; font-size: 13px;"><strong>Tech Stack:</strong> React.js, Express.js, MongoDB, Tailwind CSS</p>
-<ul style="color: #F8FAFC; font-size: 13px;">
-  <li>Interactive graph visualization using Chart.js</li>
-  <li>Automated recurring expense calculations &amp; alerts</li>
-</ul>
-<a href="https://github.com/adi-onGit" target="_blank"><img src="https://img.shields.io/badge/REPOSITORY-7C3AED?style=flat-square&logo=github" /></a>
-<a href="#" target="_blank"><img src="https://img.shields.io/badge/LIVE%20DEMO-3B82F6?style=flat-square&logo=vercel" /></a>
-
-<br/><br/>
-
-<!-- Project 2 -->
-<h3 style="color: #3B82F6; font-family: monospace; margin-top: 0;">02. Portfolio Website</h3>
-<p style="color: #F8FAFC; font-size: 14px;">An immersive 3D/Neon cyberpunk themed personal portal, mimicking a futuristic operating system terminal console.</p>
-<p style="color: #A1A1AA; font-size: 13px;"><strong>Tech Stack:</strong> React, HTML5, Custom CSS3, Glassmorphism design</p>
-<ul style="color: #F8FAFC; font-size: 13px;">
-  <li>Dynamic terminal commands executor</li>
-  <li>Fluid micro-animations &amp; custom-designed SVG decals</li>
-</ul>
-<a href="https://github.com/adi-onGit" target="_blank"><img src="https://img.shields.io/badge/REPOSITORY-7C3AED?style=flat-square&logo=github" /></a>
-<a href="#" target="_blank"><img src="https://img.shields.io/badge/LIVE%20DEMO-3B82F6?style=flat-square&logo=vercel" /></a>
-
-<br/><br/>
-
-<!-- Project 3 -->
-<h3 style="color: #D946EF; font-family: monospace; margin-top: 0;">03. Placement Management System</h3>
-<p style="color: #F8FAFC; font-size: 14px;">A role-based, secure university deployment hub coordinating student CV submissions, interview stages, and campus recruiter approvals.</p>
-<p style="color: #A1A1AA; font-size: 13px;"><strong>Tech Stack:</strong> Java, SQL, JDBC, MySQL, Swing API</p>
-<ul style="color: #F8FAFC; font-size: 13px;">
-  <li>Automated job matching engine using skill sets</li>
-  <li>Secure hashed passwords and role administration privileges</li>
-</ul>
-<a href="https://github.com/adi-onGit" target="_blank"><img src="https://img.shields.io/badge/REPOSITORY-7C3AED?style=flat-square&logo=github" /></a>
-<a href="#" target="_blank"><img src="https://img.shields.io/badge/LIVE%20DEMO-3B82F6?style=flat-square&logo=vercel" /></a>
-
-<br/><br/>
-
-<!-- Project 4 -->
-<h3 style="color: #3B82F6; font-family: monospace; margin-top: 0;">04. AI Assistant</h3>
-<p style="color: #F8FAFC; font-size: 14px;">An LLM-driven helper agent integrating search engines, web compilers, and database connections to solve complex queries.</p>
-<p style="color: #A1A1AA; font-size: 13px;"><strong>Tech Stack:</strong> Python, LangChain, Google Gemini API, Streamlit</p>
-<ul style="color: #F8FAFC; font-size: 13px;">
-  <li>Multi-agent tool routing for automated searches</li>
-  <li>Context-aware code debugging &amp; optimization modules</li>
-</ul>
-<a href="https://github.com/adi-onGit" target="_blank"><img src="https://img.shields.io/badge/REPOSITORY-7C3AED?style=flat-square&logo=github" /></a>
-<a href="#" target="_blank"><img src="https://img.shields.io/badge/LIVE%20DEMO-3B82F6?style=flat-square&logo=vercel" /></a>
-
-<br/>
-
-<div align="center">
-  <img src="assets/divider.svg" width="100%" />
-</div>
-
 <!-- ================= GITHUB ANALYTICS ================= -->
 <h2 align="center" style="color: #7C3AED; font-family: monospace;">[0x03] SYSTEM ANALYTICS</h2>
 
