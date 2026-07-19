@@ -1,0 +1,70 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 250" width="100%" height="100%">
+  <defs>
+    <style>
+      .glow-border {
+        fill: none;
+        stroke: url(#cardBorder);
+        stroke-width: 1.5;
+        filter: drop-shadow(0 0 6px rgba(168, 85, 247, 0.4));
+      }
+      .glow-dot {
+        fill: #3B82F6;
+        filter: drop-shadow(0 0 4px #3B82F6);
+        animation: pulseDot 2s infinite alternate;
+      }
+      @keyframes pulseDot {
+        0% { opacity: 0.4; }
+        100% { opacity: 1; }
+      }
+    </style>
+    
+    <linearGradient id="cardBorder" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#7C3AED" />
+      <stop offset="50%" stop-color="#D946EF" />
+      <stop offset="100%" stop-color="#3B82F6" />
+    </linearGradient>
+
+    <linearGradient id="cardBg" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#120822" />
+      <stop offset="100%" stop-color="#09050F" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Base Card Frame -->
+  <rect x="10" y="10" width="380" height="230" rx="12" fill="url(#cardBg)" fill-opacity="0.9" class="glow-border" />
+  
+  <!-- Glass Reflection Line -->
+  <path d="M 12,50 L 150,12 M 250,238 L 388,200" stroke="#F8FAFC" stroke-width="0.5" opacity="0.08" stroke-linecap="round" />
+  
+  <!-- HUD Corner brackets -->
+  <!-- Top Left -->
+  <path d="M 22,25 H 40 M 22,25 V 43" fill="none" stroke="#D946EF" stroke-width="2" />
+  <!-- Top Right -->
+  <path d="M 378,25 H 360 M 378,25 V 43" fill="none" stroke="#7C3AED" stroke-width="2" />
+  <!-- Bottom Left -->
+  <path d="M 22,225 H 40 M 22,225 V 207" fill="none" stroke="#3B82F6" stroke-width="2" />
+  <!-- Bottom Right -->
+  <path d="M 378,225 H 360 M 378,225 V 207" fill="none" stroke="#D946EF" stroke-width="2" />
+  
+  <!-- Tech Grid Background Pattern -->
+  <g opacity="0.1">
+    <line x1="20" y1="65" x2="380" y2="65" stroke="#A855F7" stroke-width="0.5" />
+    <line x1="20" y1="120" x2="380" y2="120" stroke="#A855F7" stroke-width="0.5" />
+    <line x1="20" y1="175" x2="380" y2="175" stroke="#A855F7" stroke-width="0.5" />
+    <line x1="100" y1="20" x2="100" y2="230" stroke="#A855F7" stroke-width="0.5" />
+    <line x1="200" y1="20" x2="200" y2="230" stroke="#A855F7" stroke-width="0.5" />
+    <line x1="300" y1="20" x2="300" y2="230" stroke="#A855F7" stroke-width="0.5" />
+  </g>
+  
+  <!-- UI Details -->
+  <!-- Top Title Decal -->
+  <rect x="50" y="10" width="100" height="4" fill="#7C3AED" />
+  <!-- Status Indicator -->
+  <circle cx="350" cy="40" r="3" class="glow-dot" />
+  <text x="340" y="43" font-family="monospace" font-size="8" fill="#3B82F6" text-anchor="end" opacity="0.8">SYS_OK</text>
+  
+  <!-- Bottom Decals -->
+  <rect x="300" y="236" width="50" height="4" fill="#D946EF" />
+  <line x1="25" y1="210" x2="80" y2="210" stroke="#A1A1AA" stroke-width="1" stroke-dasharray="2, 2" opacity="0.5" />
+  <text x="375" y="220" font-family="monospace" font-size="7" fill="#A1A1AA" text-anchor="end" opacity="0.5">CYBERCORE // C_04</text>
+</svg>
