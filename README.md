@@ -1,3 +1,6 @@
+<div>
+  <img src="assets/banner.svg" width="100%" alt="Aditya Mohanty workstation" />
+</div>
 <!-- ================================================================= -->
 <!--                       CYBERCORE OS v1.0.8                         -->
 <!-- ================================================================= -->
@@ -12,9 +15,6 @@
   <img src="assets/divider.svg" width="100%" />
   
   <br/><br/>
-  
-  <!-- Hero Banner -->
-  <img src="assets/banner.svg" width="100%" alt="Aditya Mohanty workstation" />
 </div>
 
 <br/>
