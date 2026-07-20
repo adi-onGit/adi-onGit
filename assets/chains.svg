@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 96" width="100%" height="100%" shape-rendering="crispEdges">
+  <style>
+    @keyframes pendulum-swing {
+      0%, 100% { transform: rotate(-3.5deg); }
+      50% { transform: rotate(3.5deg); }
+    }
+    .anim-chain {
+      transform-origin: 8px 0px;
+      animation: pendulum-swing 3.5s ease-in-out infinite;
+    }
+  </style>
+
+  <!-- Hanging Chain -->
+  <g class="anim-chain">
+    <!-- Chain Links (Repeated vertically) -->
+    <!-- Link 1 -->
+    <rect x="6" y="0" width="4" height="12" fill="#1C1C24" />
+    <rect x="7" y="2" width="2" height="8" fill="#3D3D4E" />
+    <!-- Link 2 -->
+    <rect x="5" y="10" width="6" height="10" fill="#2E2E3A" />
+    <rect x="7" y="12" width="2" height="6" fill="#4E4E5F" />
+    <!-- Link 3 -->
+    <rect x="6" y="18" width="4" height="12" fill="#1C1C24" />
+    <rect x="7" y="20" width="2" height="8" fill="#3D3D4E" />
+    <!-- Link 4 -->
+    <rect x="5" y="28" width="6" height="10" fill="#2E2E3A" />
+    <rect x="7" y="30" width="2" height="6" fill="#4E4E5F" />
+    <!-- Link 5 -->
+    <rect x="6" y="36" width="4" height="12" fill="#1C1C24" />
+    <rect x="7" y="38" width="2" height="8" fill="#3D3D4E" />
+    <!-- Link 6 -->
+    <rect x="5" y="46" width="6" height="10" fill="#2E2E3A" />
+    <rect x="7" y="48" width="2" height="6" fill="#4E4E5F" />
+    <!-- Link 7 -->
+    <rect x="6" y="54" width="4" height="12" fill="#1C1C24" />
+    <rect x="7" y="56" width="2" height="8" fill="#3D3D4E" />
+    <!-- Link 8 -->
+    <rect x="5" y="64" width="6" height="10" fill="#2E2E3A" />
+    <rect x="7" y="66" width="2" height="6" fill="#4E4E5F" />
+    <!-- Link 9 -->
+    <rect x="6" y="74" width="4" height="12" fill="#1C1C24" />
+    <rect x="7" y="76" width="2" height="8" fill="#3D3D4E" />
+
+    <!-- Bottom Hook / Skull mount -->
+    <rect x="4" y="84" width="8" height="6" fill="#E11D48" />
+    <rect x="6" y="90" width="4" height="6" fill="#1C1C24" />
+  </g>
+</svg>

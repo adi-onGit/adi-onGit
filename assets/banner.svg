@@ -1,0 +1,413 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 500" width="100%" height="100%" shape-rendering="crispEdges">
+  <defs>
+    <!-- Filters for glows -->
+    <filter id="neon-glow-purple" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="5" result="blur" />
+      <feMerge>
+        <feMergeNode in="blur" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+    <filter id="neon-glow-red" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="4" result="blur" />
+      <feMerge>
+        <feMergeNode in="blur" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+    <filter id="fire-glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="2" result="blur" />
+      <feMerge>
+        <feMergeNode in="blur" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+    <filter id="eye-glow" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur stdDeviation="1" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+
+    <!-- Gradients -->
+    <linearGradient id="sky-grad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#040408" />
+      <stop offset="60%" stop-color="#09090F" />
+      <stop offset="100%" stop-color="#181236" />
+    </linearGradient>
+    <linearGradient id="pillar-grad" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#1A1829" />
+      <stop offset="50%" stop-color="#2D2845" />
+      <stop offset="100%" stop-color="#151221" />
+    </linearGradient>
+    <linearGradient id="health-grad" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#E11D48" />
+      <stop offset="70%" stop-color="#FF6B00" />
+      <stop offset="100%" stop-color="#FBBF24" />
+    </linearGradient>
+    <linearGradient id="xp-grad" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#7C3AED" />
+      <stop offset="100%" stop-color="#A78BFA" />
+    </linearGradient>
+  </defs>
+
+  <style>
+    /* Global Retro Typography */
+    .arcade-font {
+      font-family: 'Courier New', Courier, monospace;
+      font-weight: 900;
+    }
+    .pixel-text {
+      font-family: 'Courier New', Courier, monospace;
+      font-weight: bold;
+    }
+    
+    /* Keyframe Animations */
+    @keyframes pulse-moon {
+      0%, 100% { transform: scale(1); filter: drop-shadow(0 0 1px rgba(124, 58, 237, 0.4)); opacity: 0.85; }
+      50% { transform: scale(1.02); filter: drop-shadow(0 0 6px rgba(124, 58, 237, 0.8)); opacity: 1; }
+    }
+    @keyframes lightning-bolt {
+      0%, 93%, 100% { opacity: 0; }
+      94% { opacity: 1; }
+      95% { opacity: 0.3; }
+      96% { opacity: 0.9; }
+      97% { opacity: 0.2; }
+      98% { opacity: 1; }
+      99% { opacity: 0.4; }
+    }
+    @keyframes flicker-torch {
+      0%, 100% { transform: scale(1) translateY(0); }
+      25% { transform: scale(1.1, 0.9) translateY(1px); }
+      50% { transform: scale(0.9, 1.1) translateY(-1px); }
+      75% { transform: scale(1.05, 0.95) translateY(0.5px); }
+    }
+    @keyframes spark-float-l {
+      0% { transform: translate(0, 0); opacity: 1; }
+      100% { transform: translate(-8px, -40px); opacity: 0; }
+    }
+    @keyframes spark-float-r {
+      0% { transform: translate(0, 0); opacity: 1; }
+      100% { transform: translate(10px, -35px); opacity: 0; }
+    }
+    @keyframes drift-fog-1 {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-400px); }
+    }
+    @keyframes drift-fog-2 {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-400px); }
+    }
+    @keyframes pendulum {
+      0%, 100% { transform: rotate(-2.5deg); }
+      50% { transform: rotate(2.5deg); }
+    }
+    @keyframes fly-bat-1 {
+      0% { transform: translate(0, 0); }
+      50% { transform: translate(-20px, -10px); }
+      100% { transform: translate(0, 0); }
+    }
+    @keyframes flap-wings-1 {
+      0%, 49% { opacity: 1; }
+      50%, 100% { opacity: 0; }
+    }
+    @keyframes flap-wings-2 {
+      0%, 49% { opacity: 0; }
+      50%, 100% { opacity: 1; }
+    }
+    @keyframes breathe-fighter {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-4px); }
+    }
+    @keyframes blink-fighter {
+      0%, 45%, 55%, 100% { transform: scaleY(1); }
+      50% { transform: scaleY(0.1); }
+    }
+    @keyframes text-glow {
+      0%, 100% { filter: drop-shadow(0 0 2px #FF6B00); }
+      50% { filter: drop-shadow(0 0 8px #FF6B00); }
+    }
+
+    /* CSS Class assignments */
+    .anim-moon { transform-origin: 300px 100px; animation: pulse-moon 5s ease-in-out infinite; }
+    .anim-lightning { transform-origin: top center; animation: lightning-bolt 8s infinite; }
+    .anim-flame { transform-origin: 16px 28px; animation: flicker-torch 0.25s infinite; }
+    .spark-l { animation: spark-float-l 1.5s infinite ease-out; }
+    .spark-r { animation: spark-float-r 1.2s infinite 0.6s ease-out; }
+    .anim-fog-1 { animation: drift-fog-1 20s linear infinite; }
+    .anim-fog-2 { animation: drift-fog-2 35s linear infinite; }
+    .anim-chain-l { transform-origin: 100px 0px; animation: pendulum 4s ease-in-out infinite; }
+    .anim-chain-r { transform-origin: 1500px 0px; animation: pendulum 4s ease-in-out infinite 0.5s; }
+    .anim-bat { animation: fly-bat-1 5s ease-in-out infinite; }
+    .wing-u { animation: flap-wings-1 0.4s steps(1) infinite; }
+    .wing-d { animation: flap-wings-2 0.4s steps(1) infinite; }
+    .fighter-torso { transform-origin: 800px 380px; animation: breathe-fighter 3s ease-in-out infinite; }
+    .fighter-eyes { transform-origin: 800px 324px; animation: blink-fighter 5s infinite; }
+    .title-glow { animation: text-glow 2s ease-in-out infinite; }
+  </style>
+
+  <!-- SKY BACKGROUND -->
+  <rect x="0" y="0" width="1600" height="500" fill="url(#sky-grad)" />
+
+  <!-- MOUNTAIN SILHOUETTE -->
+  <path d="M 0 350 L 200 280 L 400 320 L 650 240 L 900 330 L 1200 250 L 1450 310 L 1600 270 L 1600 450 L 0 450 Z" fill="#0A0817" />
+  
+  <!-- GLOWING MOON -->
+  <g class="anim-moon">
+    <!-- Outer glow circle in purple -->
+    <circle cx="300" cy="100" r="50" fill="#7C3AED" opacity="0.35" filter="url(#neon-glow-purple)" />
+    <!-- Pixel Moon body -->
+    <path d="
+      M 270 70 h 60 v 10 h -60 z M 260 80 h 80 v 10 h -80 z M 250 90 h 100 v 20 h -100 z
+      M 250 110 h 100 v 10 h -100 z M 260 120 h 80 v 10 h -80 z M 270 130 h 60 v 10 h -60 z
+    " fill="#E2E8F0" />
+    <!-- Craters -->
+    <rect x="270" y="90" width="15" height="15" fill="#CBD5E1" />
+    <rect x="275" y="95" width="8" height="8" fill="#94A3B8" />
+    <rect x="315" y="110" width="10" height="10" fill="#CBD5E1" />
+  </g>
+
+  <!-- FLYING BATS -->
+  <g class="anim-bat" transform="translate(320, 110)">
+    <g class="wing-u">
+      <rect x="7" y="4" width="2" height="4" fill="#0C091A" />
+      <rect x="8" y="2" width="1" height="2" fill="#E11D48" />
+      <path d="M 0 0 h 2 v 2 h 2 v 2 h 3 v 2 h -2 v -2 h -3 v -2 h -2 z" fill="#1C1A2B" />
+      <path d="M 9 4 h 3 v -2 h 2 v -2 h 2 v 4 h -2 v 2 h -3 v 2 h -2 z" fill="#1C1A2B" />
+    </g>
+    <g class="wing-d">
+      <rect x="7" y="4" width="2" height="4" fill="#0C091A" />
+      <rect x="8" y="2" width="1" height="2" fill="#E11D48" />
+      <path d="M 1 6 h 2 v -2 h 2 v -2 h 2 v 4 h -2 v 2 h -3 v -1 z" fill="#1C1A2B" />
+      <path d="M 9 2 h 2 v 2 h 2 v 2 h 2 v -1 h -3 v -2 h -2 v -2 z" fill="#1C1A2B" />
+    </g>
+  </g>
+
+  <!-- DRAGON SILHOUETTE (Center Background) -->
+  <g transform="translate(770, 190) scale(1.2)" opacity="0.65">
+    <path d="M 4 20 h 4 v 4 h -4 z M 8 16 h 6 v 4 h -6 z M 14 12 h 8 v 4 h -8 z M 22 10 h 6 v 2 h -6 z M 18 14 h 4 v 12 h -4 z M 12 18 h 4 v 14 h -4 z" fill="#110C24" />
+    <path d="M 60 20 h -4 v 4 h 4 z M 56 16 h -6 v 4 h 6 z M 50 12 h -8 v 4 h 8 z M 42 10 h -6 v 2 h 6 z M 46 14 h -4 v 12 h 4 z M 52 18 h -4 v 14 h 4 z" fill="#110C24" />
+    <path d="M 28 24 h 8 v 20 h -8 z M 26 28 h 12 v 12 h -12 z M 24 38 h 16 v 14 h -16 z M 20 48 h 24 v 6 h -24 z" fill="#090514" />
+    <path d="M 30 14 h 4 v 10 h -4 z M 28 8 h 8 v 6 h -8 z M 26 4 h 12 v 4 h -12 z" fill="#090514" />
+    <rect x="29" y="6" width="1.5" height="1" fill="#FF6B00" filter="url(#eye-glow)" />
+    <rect x="33.5" y="6" width="1.5" height="1" fill="#FF6B00" filter="url(#eye-glow)" />
+  </g>
+
+  <!-- PAGODA / TEMPLE CENTER PIECE -->
+  <g transform="translate(680, 180)">
+    <!-- Arch Pillars -->
+    <rect x="30" y="60" width="20" height="180" fill="url(#pillar-grad)" stroke="#110E26" stroke-width="1.5" />
+    <rect x="190" y="60" width="20" height="180" fill="url(#pillar-grad)" stroke="#110E26" stroke-width="1.5" />
+    <!-- Arch Roof -->
+    <path d="M 0 60 L 120 20 L 240 60 L 230 70 L 120 35 L 10 70 Z" fill="#E11D48" />
+    <path d="M 30 45 L 120 10 L 210 45 L 200 52 L 120 25 L 40 52 Z" fill="#7C3AED" />
+    <polygon points="120,0 126,8 120,16 114,8" fill="#FF6B00" filter="url(#neon-glow-red)" />
+  </g>
+
+  <!-- GLOWING ARENA FLOORS & BOUNDS -->
+  <path d="M 0 415 H 1600" stroke="#7C3AED" stroke-width="3" filter="url(#neon-glow-purple)" />
+  <path d="M 0 425 H 1600" stroke="#E11D48" stroke-width="2" filter="url(#neon-glow-red)" />
+  
+  <polygon points="0,420 1600,420 1600,500 0,500" fill="#090715" />
+  
+  <!-- Perspective Arena Grid lines -->
+  <path d="
+    M 0 420 L 0 500 M 150 420 L 50 500 M 350 420 L 250 500 M 550 420 L 500 500
+    M 750 420 L 700 500 M 850 420 L 900 500 M 1050 420 L 1100 500 M 1250 420 L 1350 500
+    M 1450 420 L 1550 500 M 1600 420 L 1600 500
+  " stroke="#1D173C" stroke-width="1.5" />
+  <line x1="0" y1="445" x2="1600" y2="445" stroke="#1D173C" stroke-width="1.5" />
+  <line x1="0" y1="470" x2="1600" y2="470" stroke="#1D173C" stroke-width="1.5" />
+
+  <!-- SIDE FOREGROUND PILLARS WITH TORCHES -->
+  <!-- Left Pillar -->
+  <g transform="translate(120, 100)">
+    <rect x="0" y="20" width="30" height="300" fill="url(#pillar-grad)" stroke="#110E26" stroke-width="2" />
+    <rect x="-6" y="0" width="42" height="20" fill="#E11D48" />
+    <rect x="-3" y="8" width="36" height="12" fill="#FF6B00" />
+    <rect x="5" y="50" width="20" height="24" fill="#110E26" />
+    <rect x="8" y="53" width="14" height="18" fill="#7C3AED" opacity="0.8" filter="url(#neon-glow-purple)" />
+    <rect x="5" y="140" width="20" height="24" fill="#110E26" />
+    <rect x="8" y="143" width="14" height="18" fill="#7C3AED" opacity="0.8" filter="url(#neon-glow-purple)" />
+    <!-- Base -->
+    <rect x="-3" y="320" width="36" height="20" fill="#1A1829" stroke="#110E26" stroke-width="2" />
+
+    <!-- Torch Component -->
+    <g transform="translate(25, 80)">
+      <!-- Mount/Handle -->
+      <rect x="0" y="20" width="10" height="6" fill="#2D2D3A" />
+      <rect x="2" y="26" width="6" height="14" fill="#1C1C24" />
+      <!-- Flame -->
+      <g class="anim-flame" filter="url(#fire-glow)">
+        <path d="M 2 -4 h 6 v 4 h -6 z M -1 0 h 12 v 4 h -12 z M -2 4 h 14 v 8 h -14 z M 0 12 h 10 v 6 h -10 z" fill="#E11D48" />
+        <path d="M 3 0 h 4 v 4 h -4 z M 1 4 h 8 v 6 h -8 z M 2 10 h 6 v 4 h -6 z" fill="#FF6B00" />
+        <rect x="4" y="6" width="2" height="6" fill="#FBBF24" />
+      </g>
+      <!-- Sparks -->
+      <rect x="1" y="-2" width="2" height="2" fill="#FF6B00" class="spark-l" />
+      <rect x="7" y="1" width="2" height="2" fill="#FBBF24" class="spark-r" />
+    </g>
+  </g>
+
+  <!-- Right Pillar -->
+  <g transform="translate(1450, 100)">
+    <rect x="0" y="20" width="30" height="300" fill="url(#pillar-grad)" stroke="#110E26" stroke-width="2" />
+    <rect x="-6" y="0" width="42" height="20" fill="#E11D48" />
+    <rect x="-3" y="8" width="36" height="12" fill="#FF6B00" />
+    <rect x="5" y="50" width="20" height="24" fill="#110E26" />
+    <rect x="8" y="53" width="14" height="18" fill="#7C3AED" opacity="0.8" filter="url(#neon-glow-purple)" />
+    <rect x="5" y="140" width="20" height="24" fill="#110E26" />
+    <rect x="8" y="143" width="14" height="18" fill="#7C3AED" opacity="0.8" filter="url(#neon-glow-purple)" />
+    <!-- Base -->
+    <rect x="-3" y="320" width="36" height="20" fill="#1A1829" stroke="#110E26" stroke-width="2" />
+
+    <!-- Torch Component -->
+    <g transform="translate(-15, 80)">
+      <rect x="0" y="20" width="10" height="6" fill="#2D2D3A" />
+      <rect x="2" y="26" width="6" height="14" fill="#1C1C24" />
+      <g class="anim-flame" filter="url(#fire-glow)">
+        <path d="M 2 -4 h 6 v 4 h -6 z M -1 0 h 12 v 4 h -12 z M -2 4 h 14 v 8 h -14 z M 0 12 h 10 v 6 h -10 z" fill="#E11D48" />
+        <path d="M 3 0 h 4 v 4 h -4 z M 1 4 h 8 v 6 h -8 z M 2 10 h 6 v 4 h -6 z" fill="#FF6B00" />
+        <rect x="4" y="6" width="2" height="6" fill="#FBBF24" />
+      </g>
+      <rect x="1" y="-2" width="2" height="2" fill="#FF6B00" class="spark-l" />
+      <rect x="7" y="1" width="2" height="2" fill="#FBBF24" class="spark-r" />
+    </g>
+  </g>
+
+  <!-- SWINGING CHAINS -->
+  <!-- Left Chain -->
+  <g class="anim-chain-l">
+    <rect x="98" y="0" width="4" height="120" fill="#1C1C24" />
+    <path d="M 97 10 h 6 v 4 h -6 z M 97 30 h 6 v 4 h -6 z M 97 50 h 6 v 4 h -6 z M 97 70 h 6 v 4 h -6 z M 97 90 h 6 v 4 h -6 z M 97 110 h 6 v 4 h -6 z" fill="#3D3D4E" />
+    <circle cx="100" cy="125" r="8" fill="#E11D48" />
+    <circle cx="100" cy="125" r="3" fill="#110E26" />
+  </g>
+  <!-- Right Chain -->
+  <g class="anim-chain-r">
+    <rect x="1498" y="0" width="4" height="120" fill="#1C1C24" />
+    <path d="M 1497 10 h 6 v 4 h -6 z M 1497 30 h 6 v 4 h -6 z M 1497 50 h 6 v 4 h -6 z M 1497 70 h 6 v 4 h -6 z M 1497 90 h 6 v 4 h -6 z M 1497 110 h 6 v 4 h -6 z" fill="#3D3D4E" />
+    <circle cx="1500" cy="125" r="8" fill="#E11D48" />
+    <circle cx="1500" cy="125" r="3" fill="#110E26" />
+  </g>
+
+  <!-- LIGHTNING BOLT OVERLAY -->
+  <g class="anim-lightning" filter="url(#neon-glow-purple)" opacity="0">
+    <path d="M 450 0 L 400 150 L 480 150 L 410 300 L 520 300 L 460 500" stroke="#00D2FF" stroke-width="4" fill="none" />
+    <path d="M 450 0 L 400 150 L 480 150 L 410 300 L 520 300 L 460 500" stroke="#FFFFFF" stroke-width="1.5" fill="none" />
+  </g>
+
+  <!-- FIGHTER SPRITE (Centered in Arena) -->
+  <g transform="translate(736, 226) scale(2.0)">
+    <!-- Shadow -->
+    <ellipse cx="32" cy="58" rx="12" ry="3" fill="#020205" opacity="0.75" />
+    <!-- Planted Legs -->
+    <path d="M 22 46 h 4 v 4 h -4 z M 20 50 h 4 v 4 h -4 z M 17 54 h 6 v 3 h -6 z" fill="#1F1A3A" />
+    <path d="M 22 50 h 2 v 4 h -2 z" fill="#7C3AED" />
+    <path d="M 38 46 h 4 v 4 h -4 z M 40 50 h 4 v 4 h -4 z M 41 54 h 6 v 3 h -6 z" fill="#1F1A3A" />
+    <path d="M 40 50 h 2 v 4 h -2 z" fill="#7C3AED" />
+
+    <!-- Torso and Head breathing -->
+    <g class="fighter-torso">
+      <!-- Waist, sash, belt -->
+      <path d="M 24 42 h 16 v 4 h -16 z" fill="#110E26" />
+      <path d="M 26 43 h 12 v 2 h -12 z" fill="#E11D48" />
+      <path d="M 31 42 h 2 v 4 h -2 z" fill="#FF6B00" />
+      <!-- Chest, shoulders, wraps -->
+      <path d="M 22 28 h 20 v 14 h -20 z" fill="#1F1A3A" />
+      <path d="M 26 28 h 12 v 6 h -12 z" fill="#2E2559" />
+      <path d="M 29 28 h 6 v 3 h -6 z" fill="#7C3AED" />
+      <path d="M 25 32 h 2 v 10 h -2 z M 37 32 h 2 v 10 h -2 z" fill="#7C3AED" />
+      <!-- Head & Mask -->
+      <path d="M 24 12 h 16 v 16 h -16 z" fill="#1F1A3A" />
+      <path d="M 26 14 h 12 v 12 h -12 z" fill="#7C3AED" />
+      <path d="M 28 16 h 8 v 8 h -8 z" fill="#4C1D95" />
+      <path d="M 27 18 h 10 v 4 h -10 z" fill="#110E26" />
+      <!-- Blinking Eyes -->
+      <g class="fighter-eyes">
+        <rect x="29" y="19" width="2" height="1" fill="#FF6B00" filter="url(#eye-glow)" />
+        <rect x="33" y="19" width="2" height="1" fill="#FF6B00" filter="url(#eye-glow)" />
+        <rect x="30" y="19" width="1" height="1" fill="#FFFFFF" />
+        <rect x="34" y="19" width="1" height="1" fill="#FFFFFF" />
+      </g>
+      <!-- Bandana Tails -->
+      <path d="M 20 14 h 4 v 4 h -4 z M 18 16 h 3 v 3 h -3 z M 15 18 h 4 v 3 h -4 z" fill="#4C1D95" />
+    </g>
+
+    <!-- Arms -->
+    <path d="M 18 28 h 5 v 4 h -5 z M 16 32 h 4 v 4 h -4 z M 14 36 h 4 v 4 h -4 z" fill="#1F1A3A" />
+    <path d="M 13 38 h 4 v 4 h -4 z" fill="#7C3AED" />
+    <path d="M 12 39 h 3 v 3 h -3 z" fill="#E11D48" />
+
+    <path d="M 41 28 h 5 v 4 h -5 z M 44 32 h 4 v 4 h -4 z M 46 36 h 4 v 4 h -4 z" fill="#1F1A3A" />
+    <path d="M 47 38 h 4 v 4 h -4 z" fill="#7C3AED" />
+    <path d="M 49 39 h 3 v 3 h -3 z" fill="#E11D48" />
+
+    <!-- Cyber Keyboard Weapon -->
+    <g transform="translate(43, 28) rotate(-15)">
+      <rect x="-2" y="2" width="14" height="5" rx="1" fill="#110E26" stroke="#7C3AED" stroke-width="0.75" />
+      <rect x="0" y="3.5" width="2" height="2" fill="#FF6B00" />
+      <rect x="3" y="3.5" width="2" height="2" fill="#E11D48" />
+      <rect x="6" y="3.5" width="2" height="2" fill="#7C3AED" />
+      <rect x="9" y="3.5" width="2" height="2" fill="#22C55E" />
+    </g>
+  </g>
+
+  <!-- FOG OVERLAY (Drifting across floor) -->
+  <g opacity="0.65">
+    <g class="anim-fog-1">
+      <path d="
+        M 0 420 h 200 v 15 h -200 z M 300 425 h 350 v 20 h -350 z M 800 430 h 400 v 25 h -400 z M 1300 422 h 250 v 18 h -250 z
+        M 1600 420 h 200 v 15 h -200 z M 1900 425 h 350 v 20 h -350 z M 2400 430 h 400 v 25 h -400 z M 2900 422 h 250 v 18 h -250 z
+      " fill="#7C3AED" opacity="0.1" />
+    </g>
+    <g class="anim-fog-2">
+      <path d="
+        M 100 435 h 250 v 20 h -250 z M 500 440 h 300 v 25 h -300 z M 950 430 h 350 v 22 h -350 z
+        M 1700 435 h 250 v 20 h -250 z M 2100 440 h 300 v 25 h -300 z M 2550 430 h 350 v 22 h -350 z
+      " fill="#E11D48" opacity="0.07" />
+    </g>
+  </g>
+
+  <!-- HEALTH HUD OVERLAY (Fighting Game Style) -->
+  <g transform="translate(100, 20)">
+    <!-- LEFT: Player 1 (Adi-onGit) -->
+    <text x="0" y="15" fill="#E11D48" class="pixel-text" font-size="16" letter-spacing="1">FINISH THE BUILD</text>
+    <rect x="0" y="24" width="550" height="24" fill="#110E26" stroke="#4B5563" stroke-width="3" />
+    <rect x="4" y="28" width="520" height="16" fill="url(#health-grad)" class="health-bar-fill" />
+    <path d="M 54 28 v 16 M 104 28 v 16 M 154 28 v 16 M 204 28 v 16 M 254 28 v 16 M 304 28 v 16 M 354 28 v 16 M 404 28 v 16 M 454 28 v 16 M 504 28 v 16" stroke="#110E26" stroke-width="2.5" />
+    <text x="0" y="68" fill="#E5E7EB" class="arcade-font" font-size="20" letter-spacing="2">ADI-ONGIT</text>
+    <circle cx="145" cy="62" r="6" fill="#E11D48" />
+
+    <!-- VS LOGO / GAME HEADER -->
+    <g transform="translate(700, 0)">
+      <text x="0" y="-3" fill="#FF6B00" class="arcade-font title-glow" font-size="44" text-anchor="middle" filter="url(#neon-glow-red)" font-weight="900" letter-spacing="4">CODE KOMBAT</text>
+      <text x="0" y="24" fill="#E5E7EB" class="pixel-text" font-size="14" text-anchor="middle" letter-spacing="3">CHOOSE YOUR FIGHTER</text>
+      <rect x="-24" y="28" width="48" height="22" fill="#E11D48" transform="rotate(45 0 38)" />
+      <text x="0" y="44" fill="#FFFFFF" class="arcade-font" font-size="18" text-anchor="middle" font-weight="bold">KO</text>
+    </g>
+
+    <!-- RIGHT: Player 2 (Level & XP) -->
+    <text x="1400" y="15" fill="#7C3AED" class="pixel-text" font-size="16" text-anchor="end" letter-spacing="1">LVL 20 NINJA</text>
+    <rect x="850" y="24" width="550" height="24" fill="#110E26" stroke="#4B5563" stroke-width="3" />
+    <rect x="854" y="28" width="415" height="16" fill="url(#xp-grad)" />
+    <path d="M 904 28 v 16 M 954 28 v 16 M 1004 28 v 16 M 1054 28 v 16 M 1104 28 v 16 M 1154 28 v 16 M 1204 28 v 16 M 1254 28 v 16 M 1304 28 v 16 M 1354 28 v 16" stroke="#110E26" stroke-width="2.5" />
+    <text x="1400" y="68" fill="#E5E7EB" class="arcade-font" font-size="18" text-anchor="end" letter-spacing="2">XP 7560 / 10000</text>
+  </g>
+
+  <!-- WELCOME TO MY ARENA (DIALOGUE BOX) -->
+  <g transform="translate(425, 415)">
+    <!-- Dialogue Container Box -->
+    <rect x="0" y="0" width="750" height="75" fill="#0C0A1F" stroke="#7C3AED" stroke-width="3" rx="8" filter="url(#neon-glow-purple)" />
+    <rect x="4" y="4" width="742" height="67" fill="#090715" rx="5" />
+    
+    <!-- Red Accent Corner decorations -->
+    <rect x="0" y="0" width="12" height="12" fill="#E11D48" rx="2" />
+    <rect x="738" y="0" width="12" height="12" fill="#E11D48" rx="2" />
+    <rect x="0" y="63" width="12" height="12" fill="#E11D48" rx="2" />
+    <rect x="738" y="63" width="12" height="12" fill="#E11D48" rx="2" />
+
+    <!-- Dialogue Text -->
+    <text x="375" y="22" fill="#FF6B00" class="arcade-font" font-size="14" text-anchor="middle" letter-spacing="3">WELCOME TO MY ARENA</text>
+    <text x="375" y="42" fill="#E5E7EB" class="pixel-text" font-size="11" text-anchor="middle" letter-spacing="1">I'm Aditya Mohanty (adi-onGit) - Full Stack Developer &amp; Tech Enthusiast.</text>
+    <text x="375" y="58" fill="#A78BFA" class="pixel-text" font-size="11" text-anchor="middle" letter-spacing="1">I build digital experiences and solve real-world problems with code. <tspan fill="#E11D48">CODE. DEBUG. DOMINATE.</tspan></text>
+  </g>
+</svg>

@@ -1,0 +1,113 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 350 400" width="100%" height="100%" shape-rendering="crispEdges">
+  <defs>
+    <filter id="neon-glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="2" result="blur" />
+      <feMerge>
+        <feMergeNode in="blur" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+  </defs>
+
+  <style>
+    .panel-title {
+      font-family: 'Courier New', Courier, monospace;
+      font-weight: 900;
+      fill: #FF6B00;
+      letter-spacing: 2px;
+    }
+    .record-label {
+      font-family: 'Courier New', Courier, monospace;
+      font-weight: bold;
+      fill: #E5E7EB;
+      font-size: 11px;
+    }
+    .record-val {
+      font-family: 'Courier New', Courier, monospace;
+      font-weight: 900;
+      fill: #A78BFA;
+      font-size: 13px;
+    }
+    .rank-label {
+      font-family: 'Courier New', Courier, monospace;
+      font-weight: 900;
+      fill: #E11D48;
+      font-size: 12px;
+      letter-spacing: 1.5px;
+    }
+    @keyframes counter-pulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+    }
+    .pulse-val {
+      transform-origin: 290px 0;
+      animation: counter-pulse 2s ease-in-out infinite;
+    }
+  </style>
+
+  <!-- Panel Border/Frame -->
+  <rect x="5" y="5" width="340" height="390" fill="#090715" stroke="#7C3AED" stroke-width="3" rx="8" filter="url(#neon-glow)" />
+  <rect x="10" y="10" width="330" height="380" fill="#0C0A1F" rx="5" />
+  
+  <!-- Corner studs -->
+  <rect x="8" y="8" width="4" height="4" fill="#E11D48" />
+  <rect x="338" y="8" width="4" height="4" fill="#E11D48" />
+  <rect x="8" y="388" width="4" height="4" fill="#E11D48" />
+  <rect x="338" y="388" width="4" height="4" fill="#E11D48" />
+
+  <!-- Panel Title -->
+  <text x="175" y="35" class="panel-title" font-size="16" text-anchor="middle" filter="url(#neon-glow)">KOMBAT RECORD</text>
+  <line x1="25" y1="45" x2="325" y2="45" stroke="#7C3AED" stroke-width="2" />
+
+  <!-- 1. PROJECTS COMPLETED (28+) -->
+  <g transform="translate(25, 65)">
+    <!-- Box/Folder Icon -->
+    <path d="M 1 2 h 12 v 8 h -12 z M 3 0 h 4 v 2 h -4 z" fill="#FF6B00" />
+    <text x="25" y="11" class="record-label">PROJECTS COMPLETED</text>
+    <text x="300" y="12" class="record-val" text-anchor="end">28+</text>
+  </g>
+
+  <!-- 2. BUGS DEFEATED (2400+) -->
+  <g transform="translate(25, 115)">
+    <!-- Skull Icon -->
+    <path d="M 4 0 h 6 v 2 h -6 z M 2 2 h 10 v 4 h -10 z M 0 6 h 14 v 4 h -14 z M 2 10 h 10 v 2 h -10 z M 4 12 h 6 v 2 h -6 z" fill="#E11D48" />
+    <circle cx="5" cy="5" r="1.5" fill="#110E26" />
+    <circle cx="9" cy="5" r="1.5" fill="#110E26" />
+    <text x="25" y="11" class="record-label">BUGS DEFEATED</text>
+    <text x="300" y="12" class="record-val" text-anchor="end" fill="#E11D48">2400+</text>
+  </g>
+
+  <!-- 3. PULL REQUESTS (180+) -->
+  <g transform="translate(25, 165)">
+    <!-- Git PR Icon -->
+    <circle cx="3" cy="3" r="2" fill="#22C55E" />
+    <circle cx="11" cy="3" r="2" fill="#22C55E" />
+    <line x1="3" y1="5" x2="3" y2="12" stroke="#22C55E" stroke-width="1.5" />
+    <line x1="11" y1="5" x2="11" y2="8" stroke="#22C55E" stroke-width="1.5" />
+    <path d="M 11 8 C 11 8, 3 8, 3 10" stroke="#22C55E" stroke-width="1.5" fill="none" />
+    <text x="25" y="11" class="record-label">PULL REQUESTS</text>
+    <text x="300" y="12" class="record-val" text-anchor="end">180+</text>
+  </g>
+
+  <!-- 4. OPEN SOURCE XP (5600+) -->
+  <g transform="translate(25, 215)">
+    <!-- Diamond/Star Icon -->
+    <polygon points="7,0 12,5 7,10 2,5" fill="#7C3AED" filter="url(#neon-glow)" />
+    <text x="25" y="11" class="record-label">OPEN SOURCE XP</text>
+    <text x="300" y="12" class="record-val" text-anchor="end" fill="#FF6B00">5600+</text>
+  </g>
+
+  <!-- 5. HACKATHONS (10+) -->
+  <g transform="translate(25, 265)">
+    <!-- Trophy Icon -->
+    <path d="M 2 0 h 10 v 4 h -10 z M 0 2 h 2 v 4 h -2 z M 12 2 h 2 v 4 h -2 z M 5 4 h 4 v 4 h -4 z M 3 8 h 8 v 2 h -8 z" fill="#FBBF24" />
+    <text x="25" y="11" class="record-label">HACKATHONS</text>
+    <text x="300" y="12" class="record-val" text-anchor="end">10+</text>
+  </g>
+
+  <!-- Rank Divider -->
+  <line x1="25" y1="315" x2="325" y2="315" stroke="#7C3AED" stroke-dasharray="4 4" stroke-width="1.5" />
+
+  <!-- Rank Status Text -->
+  <text x="175" y="350" class="rank-label" text-anchor="middle" filter="url(#neon-glow)">RANK: ELITE DEVELOPER</text>
+</svg>

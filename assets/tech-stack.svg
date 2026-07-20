@@ -1,0 +1,162 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 350 400" width="100%" height="100%" shape-rendering="crispEdges">
+  <defs>
+    <filter id="neon-glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="2" result="blur" />
+      <feMerge>
+        <feMergeNode in="blur" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+  </defs>
+
+  <style>
+    .panel-title {
+      font-family: 'Courier New', Courier, monospace;
+      font-weight: 900;
+      fill: #FF6B00;
+      letter-spacing: 2px;
+    }
+    .tech-label {
+      font-family: 'Courier New', Courier, monospace;
+      font-weight: bold;
+      fill: #E5E7EB;
+      font-size: 10px;
+    }
+    @keyframes icon-pulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+    }
+    .tech-icon-group {
+      transform-origin: center;
+    }
+    .tech-cell:hover .tech-icon-group {
+      animation: icon-pulse 0.5s ease-in-out infinite alternate;
+    }
+  </style>
+
+  <!-- Panel Border/Frame -->
+  <rect x="5" y="5" width="340" height="390" fill="#090715" stroke="#7C3AED" stroke-width="3" rx="8" filter="url(#neon-glow)" />
+  <rect x="10" y="10" width="330" height="380" fill="#0C0A1F" rx="5" />
+  
+  <!-- Corner studs -->
+  <rect x="8" y="8" width="4" height="4" fill="#E11D48" />
+  <rect x="338" y="8" width="4" height="4" fill="#E11D48" />
+  <rect x="8" y="388" width="4" height="4" fill="#E11D48" />
+  <rect x="338" y="388" width="4" height="4" fill="#E11D48" />
+
+  <!-- Panel Title -->
+  <text x="175" y="35" class="panel-title" font-size="16" text-anchor="middle" filter="url(#neon-glow)">TECH STACK</text>
+  <line x1="25" y1="45" x2="325" y2="45" stroke="#7C3AED" stroke-width="2" />
+
+  <!-- 3x3 TECH GRID -->
+
+  <!-- ROW 1 -->
+  <!-- 1. Java (Column 1: X=30) -->
+  <g class="tech-cell" transform="translate(30, 60)">
+    <g class="tech-icon-group" transform="translate(25, 25)">
+      <!-- Java Coffee Cup Logo -->
+      <path d="M -10 -2 h 16 v 14 h -16 z M 6 0 h 4 v 6 h -4 z" fill="#FF6B00" />
+      <path d="M -8 0 h 12 v 10 h -12 z" fill="#0C0A1F" />
+      <path d="M -6 1 h 8 v 8 h -8 z" fill="#E11D48" />
+      <!-- Steam -->
+      <path d="M -4 -8 v 4 h 2 v -4 z M 0 -11 v 4 h 2 v -4 z M 4 -7 v 4 h 2 v -4 z" fill="#E5E7EB" />
+    </g>
+    <text x="45" y="65" class="tech-label" text-anchor="middle">Java</text>
+  </g>
+
+  <!-- 2. JavaScript (Column 2: X=130) -->
+  <g class="tech-cell" transform="translate(130, 60)">
+    <g class="tech-icon-group" transform="translate(25, 25)">
+      <!-- JS square -->
+      <rect x="-16" y="-16" width="32" height="32" fill="#FBBF24" />
+      <!-- 'JS' text in pixel style -->
+      <path d="M 0 4 h 4 v 4 h -4 z M 0 -4 h 6 v 2 h -6 z M 2 -2 h 4 v 6 h -4 z" fill="#110E26" />
+      <path d="M 8 -4 h 6 v 2 h -6 z M 8 -2 h 2 v 4 h 4 v 2 h -6 z M 12 0 h 2 v 2 h -2 z" fill="#110E26" />
+    </g>
+    <text x="45" y="65" class="tech-label" text-anchor="middle">JavaScript</text>
+  </g>
+
+  <!-- 3. TypeScript (Column 3: X=230) -->
+  <g class="tech-cell" transform="translate(230, 60)">
+    <g class="tech-icon-group" transform="translate(25, 25)">
+      <!-- TS square -->
+      <rect x="-16" y="-16" width="32" height="32" fill="#3178C6" />
+      <!-- 'TS' text in pixel style -->
+      <path d="M -10 -8 h 8 v 2 h -3 v 12 h -2 v -12 h -3 z" fill="#FFFFFF" />
+      <path d="M 0 -8 h 8 v 2 h -8 z M 0 -6 h 2 v 4 h 6 v 6 h -8 z M 4 -2 h 4 v 2 h -4 z" fill="#FFFFFF" />
+    </g>
+    <text x="45" y="65" class="tech-label" text-anchor="middle">TypeScript</text>
+  </g>
+
+  <!-- ROW 2 -->
+  <!-- 4. React (Column 1: X=30) -->
+  <g class="tech-cell" transform="translate(30, 170)">
+    <g class="tech-icon-group" transform="translate(25, 25)">
+      <!-- React Atom -->
+      <ellipse rx="16" ry="6" fill="none" stroke="#00D2FF" stroke-width="1.5" transform="rotate(30)" />
+      <ellipse rx="16" ry="6" fill="none" stroke="#00D2FF" stroke-width="1.5" transform="rotate(90)" />
+      <ellipse rx="16" ry="6" fill="none" stroke="#00D2FF" stroke-width="1.5" transform="rotate(150)" />
+      <circle cx="0" cy="0" r="3" fill="#00D2FF" />
+    </g>
+    <text x="45" y="65" class="tech-label" text-anchor="middle">React</text>
+  </g>
+
+  <!-- 5. Node.js (Column 2: X=130) -->
+  <g class="tech-cell" transform="translate(130, 170)">
+    <g class="tech-icon-group" transform="translate(25, 25)">
+      <!-- Node Hexagon -->
+      <polygon points="0,-16 14,-8 14,8 0,16 -14,8 -14,-8" fill="#22C55E" />
+      <polygon points="0,-12 10,-6 10,6 0,12 -10,6 -10,-6" fill="#0C0A1F" />
+      <path d="M -4 -4 h 6 v 2 h -6 z M -4 2 h 8 v 2 h -8 z M 2 -2 h 2 v 6 h -2 z" fill="#22C55E" />
+    </g>
+    <text x="45" y="65" class="tech-label" text-anchor="middle">Node.js</text>
+  </g>
+
+  <!-- 6. Express.js (Column 3: X=230) -->
+  <g class="tech-cell" transform="translate(230, 170)">
+    <g class="tech-icon-group" transform="translate(25, 25)">
+      <!-- ex Logo -->
+      <rect x="-16" y="-16" width="32" height="32" fill="#E5E7EB" rx="4" />
+      <text x="0" y="7" font-family="'Courier New', Courier, monospace" font-weight="900" fill="#110E26" font-size="20" text-anchor="middle">ex</text>
+    </g>
+    <text x="45" y="65" class="tech-label" text-anchor="middle">Express.js</text>
+  </g>
+
+  <!-- ROW 3 -->
+  <!-- 7. Python (Column 1: X=30) -->
+  <g class="tech-cell" transform="translate(30, 280)">
+    <g class="tech-icon-group" transform="translate(25, 25)">
+      <!-- Python snakes -->
+      <path d="M -12 -12 h 16 v 14 h -6 v 4 h -10 z" fill="#3178C6" />
+      <path d="M 12 12 h -16 v -14 h 6 v -4 h 10 z" fill="#FBBF24" />
+      <!-- Eyes -->
+      <circle cx="-6" cy="-8" r="1" fill="#FFFFFF" />
+      <circle cx="6" cy="8" r="1" fill="#FFFFFF" />
+    </g>
+    <text x="45" y="65" class="tech-label" text-anchor="middle">Python</text>
+  </g>
+
+  <!-- 8. MySQL (Column 2: X=130) -->
+  <g class="tech-cell" transform="translate(130, 280)">
+    <g class="tech-icon-group" transform="translate(25, 25)">
+      <!-- Dolphin/DB cylinders -->
+      <rect x="-12" y="-12" width="24" height="6" rx="2" fill="#00758F" stroke="#E5E7EB" stroke-width="1" />
+      <rect x="-12" y="-3" width="24" height="6" rx="2" fill="#00758F" stroke="#E5E7EB" stroke-width="1" />
+      <rect x="-12" y="6" width="24" height="6" rx="2" fill="#00758F" stroke="#E5E7EB" stroke-width="1" />
+    </g>
+    <text x="45" y="65" class="tech-label" text-anchor="middle">MySQL</text>
+  </g>
+
+  <!-- 9. Git & GitHub (Column 3: X=230) -->
+  <g class="tech-cell" transform="translate(230, 280)">
+    <g class="tech-icon-group" transform="translate(25, 25)">
+      <!-- Git branch node / Octocat -->
+      <circle cx="-6" cy="-6" r="4" fill="#E11D48" />
+      <circle cx="6" cy="6" r="4" fill="#E11D48" />
+      <circle cx="-6" cy="6" r="4" fill="#E11D48" />
+      <line x1="-6" y1="-2" x2="-6" y2="2" stroke="#E11D48" stroke-width="2" />
+      <path d="M -6 6 C -6 6, 6 6, 6 2" stroke="#E11D48" stroke-width="2" fill="none" />
+    </g>
+    <text x="45" y="65" class="tech-label" text-anchor="middle">Git &amp; GitHub</text>
+  </g>
+</svg>

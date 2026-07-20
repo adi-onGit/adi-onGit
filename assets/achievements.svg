@@ -1,0 +1,98 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 350 400" width="100%" height="100%" shape-rendering="crispEdges">
+  <defs>
+    <filter id="neon-glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="2" result="blur" />
+      <feMerge>
+        <feMergeNode in="blur" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+  </defs>
+
+  <style>
+    .panel-title {
+      font-family: 'Courier New', Courier, monospace;
+      font-weight: 900;
+      fill: #FF6B00;
+      letter-spacing: 2px;
+    }
+    .achievement-title {
+      font-family: 'Courier New', Courier, monospace;
+      font-weight: 900;
+      fill: #E5E7EB;
+      font-size: 11px;
+      letter-spacing: 1px;
+    }
+    .achievement-desc {
+      font-family: 'Courier New', Courier, monospace;
+      font-weight: bold;
+      fill: #94A3B8;
+      font-size: 9px;
+    }
+  </style>
+
+  <!-- Panel Border/Frame -->
+  <rect x="5" y="5" width="340" height="390" fill="#090715" stroke="#7C3AED" stroke-width="3" rx="8" filter="url(#neon-glow)" />
+  <rect x="10" y="10" width="330" height="380" fill="#0C0A1F" rx="5" />
+  
+  <!-- Corner studs -->
+  <rect x="8" y="8" width="4" height="4" fill="#E11D48" />
+  <rect x="338" y="8" width="4" height="4" fill="#E11D48" />
+  <rect x="8" y="388" width="4" height="4" fill="#E11D48" />
+  <rect x="338" y="388" width="4" height="4" fill="#E11D48" />
+
+  <!-- Panel Title -->
+  <text x="175" y="35" class="panel-title" font-size="16" text-anchor="middle" filter="url(#neon-glow)">ACHIEVEMENTS</text>
+  <line x1="25" y1="45" x2="325" y2="45" stroke="#7C3AED" stroke-width="2" />
+
+  <!-- 1. FIRST COMMIT -->
+  <g transform="translate(25, 60)">
+    <!-- Gold Coin / Skull Badge -->
+    <circle cx="16" cy="16" r="12" fill="#FBBF24" stroke="#D97706" stroke-width="1.5" />
+    <path d="M 12 14 h 8 v 8 h -8 z" fill="#110E26" />
+    <rect x="14" y="16" width="4" height="4" fill="#E5E7EB" />
+    <text x="45" y="15" class="achievement-title">FIRST COMMIT</text>
+    <text x="45" y="27" class="achievement-desc">The journey begins</text>
+  </g>
+
+  <!-- 2. 100 COMMITS -->
+  <g transform="translate(25, 125)">
+    <!-- Crown Badge -->
+    <rect x="4" y="4" width="24" height="24" fill="#110E26" stroke="#7C3AED" stroke-width="1.5" rx="4" />
+    <path d="M 8 20 h 16 v 2 h -16 z M 8 12 L 12 16 L 16 10 L 20 16 L 24 12 L 24 18 L 8 18 Z" fill="#FBBF24" />
+    <text x="45" y="15" class="achievement-title">100 COMMITS</text>
+    <text x="45" y="27" class="achievement-desc">Consistency is power</text>
+  </g>
+
+  <!-- 3. OPEN SOURCE EXPLORER -->
+  <g transform="translate(25, 190)">
+    <!-- Compass/Shield Badge -->
+    <polygon points="16,4 28,16 16,28 4,16" fill="#0C2D1B" stroke="#22C55E" stroke-width="1.5" />
+    <circle cx="16" cy="16" r="3" fill="#22C55E" />
+    <line x1="16" y1="10" x2="16" y2="22" stroke="#FFFFFF" stroke-width="1" />
+    <line x1="10" y1="16" x2="22" y2="16" stroke="#FFFFFF" stroke-width="1" />
+    <text x="45" y="15" class="achievement-title" fill="#22C55E">OPEN SOURCE EXPLORER</text>
+    <text x="45" y="27" class="achievement-desc">The code contributes</text>
+  </g>
+
+  <!-- 4. HACKATHON WARRIOR -->
+  <g transform="translate(25, 255)">
+    <!-- Flame Badge -->
+    <rect x="4" y="4" width="24" height="24" fill="#110E26" stroke="#E11D48" stroke-width="1.5" rx="4" />
+    <path d="M 12 8 h 8 v 12 h -8 z" fill="#FF6B00" />
+    <path d="M 14 11 h 4 v 6 h -4 z" fill="#FBBF24" />
+    <text x="45" y="15" class="achievement-title" fill="#FF6B00">HACKATHON WARRIOR</text>
+    <text x="45" y="27" class="achievement-desc">Built under pressure</text>
+  </g>
+
+  <!-- 5. CLOUD NINJA -->
+  <g transform="translate(25, 320)">
+    <!-- Cloud Badge with Ninja Eyes -->
+    <path d="M 8 16 h 16 v 6 h -16 z M 10 12 h 12 v 10 h -12 z M 14 8 h 4 v 14 h -4 z" fill="#38BDF8" />
+    <rect x="12" y="14" width="8" height="3" fill="#110E26" />
+    <rect x="13" y="15" width="2" height="1" fill="#FF6B00" />
+    <rect x="17" y="15" width="2" height="1" fill="#FF6B00" />
+    <text x="45" y="15" class="achievement-title" fill="#38BDF8">CLOUD NINJA</text>
+    <text x="45" y="27" class="achievement-desc">Deployed to the cloud</text>
+  </g>
+</svg>

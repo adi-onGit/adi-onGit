@@ -1,0 +1,96 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 80" width="100%" height="100%" shape-rendering="crispEdges">
+  <defs>
+    <!-- Dark metal border gradient -->
+    <linearGradient id="metal-grad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#4B5563" />
+      <stop offset="50%" stop-color="#1F2937" />
+      <stop offset="100%" stop-color="#111827" />
+    </linearGradient>
+    
+    <!-- Health gradient -->
+    <linearGradient id="health-grad" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#E11D48" />
+      <stop offset="70%" stop-color="#FF6B00" />
+      <stop offset="100%" stop-color="#FBBF24" />
+    </linearGradient>
+
+    <!-- XP gradient -->
+    <linearGradient id="xp-grad" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#7C3AED" />
+      <stop offset="100%" stop-color="#A78BFA" />
+    </linearGradient>
+
+    <filter id="neon-glow-red" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="2" result="blur" />
+      <feMerge>
+        <feMergeNode in="blur" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+  </defs>
+
+  <style>
+    @keyframes bar-pulse {
+      0%, 100% { filter: drop-shadow(0 0 1px rgba(225, 29, 72, 0.5)); }
+      50% { filter: drop-shadow(0 0 3px rgba(225, 29, 72, 0.9)); }
+    }
+    @keyframes text-blink {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.6; }
+    }
+    .health-bar-fill {
+      animation: bar-pulse 2s infinite;
+    }
+    .hud-title {
+      font-family: 'Courier New', Courier, monospace;
+      font-weight: 900;
+      letter-spacing: 2px;
+    }
+    .hud-text {
+      font-family: 'Courier New', Courier, monospace;
+      font-weight: bold;
+    }
+  </style>
+
+  <!-- Left Side: Player 1 (Fighter Health) -->
+  <g transform="translate(10, 10)">
+    <!-- Label "FINISH THE BUILD" -->
+    <text x="0" y="15" fill="#E11D48" class="hud-text" font-size="12" letter-spacing="1">FINISH THE BUILD</text>
+    
+    <!-- Health Bar Container -->
+    <rect x="0" y="22" width="320" height="20" fill="#110E26" stroke="#4B5563" stroke-width="2" />
+    
+    <!-- Health Fill (95%) -->
+    <rect x="3" y="25" width="300" height="14" fill="url(#health-grad)" class="health-bar-fill" />
+    <!-- Segment lines to make it look pixel/segmented -->
+    <path d="M 33 25 v 14 M 63 25 v 14 M 93 25 v 14 M 123 25 v 14 M 153 25 v 14 M 183 25 v 14 M 213 25 v 14 M 243 25 v 14 M 273 25 v 14" stroke="#110E26" stroke-width="1.5" />
+    
+    <!-- Player Name: ADI-ONGIT -->
+    <text x="0" y="58" fill="#E5E7EB" class="hud-title" font-size="14">ADI-ONGIT</text>
+    <!-- Coin/Skull Icon -->
+    <circle cx="95" cy="54" r="4.5" fill="#E11D48" />
+  </g>
+
+  <!-- Center Combat Divider (VS logo style or KO) -->
+  <g transform="translate(370, 12)">
+    <rect x="20" y="15" width="20" height="20" fill="#E11D48" transform="rotate(45 30 25)" filter="url(#neon-glow-red)" />
+    <text x="30" y="29" fill="#FFFFFF" class="hud-title" font-size="13" text-anchor="middle" font-weight="bold">VS</text>
+  </g>
+
+  <!-- Right Side: Player 2 (Level & XP) -->
+  <g transform="translate(470, 10)">
+    <!-- Label "LVL 20 NINJA" -->
+    <text x="320" y="15" fill="#7C3AED" class="hud-text" font-size="12" text-anchor="end" letter-spacing="1">LVL 20 NINJA</text>
+    
+    <!-- XP Bar Container -->
+    <rect x="0" y="22" width="320" height="20" fill="#110E26" stroke="#4B5563" stroke-width="2" />
+    
+    <!-- XP Fill (75.6%) -->
+    <rect x="3" y="25" width="238" height="14" fill="url(#xp-grad)" />
+    <!-- Segment lines -->
+    <path d="M 33 25 v 14 M 63 25 v 14 M 93 25 v 14 M 123 25 v 14 M 153 25 v 14 M 183 25 v 14 M 213 25 v 14 M 243 25 v 14 M 273 25 v 14" stroke="#110E26" stroke-width="1.5" />
+    
+    <!-- XP Info -->
+    <text x="320" y="58" fill="#E5E7EB" class="hud-title" font-size="13" text-anchor="end">XP 7560 / 10000</text>
+  </g>
+</svg>

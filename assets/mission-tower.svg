@@ -1,0 +1,111 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 350 400" width="100%" height="100%" shape-rendering="crispEdges">
+  <defs>
+    <filter id="neon-glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="2" result="blur" />
+      <feMerge>
+        <feMergeNode in="blur" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+    <filter id="green-glow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="3" result="blur" />
+      <feMerge>
+        <feMergeNode in="blur" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+  </defs>
+
+  <style>
+    .panel-title {
+      font-family: 'Courier New', Courier, monospace;
+      font-weight: 900;
+      fill: #FF6B00;
+      letter-spacing: 2px;
+    }
+    .stage-label {
+      font-family: 'Courier New', Courier, monospace;
+      font-weight: bold;
+      fill: #E5E7EB;
+      font-size: 10px;
+    }
+    .stage-name {
+      font-family: 'Courier New', Courier, monospace;
+      font-weight: 900;
+      font-size: 11px;
+      letter-spacing: 1px;
+    }
+    .stage-active {
+      fill: #22C55E;
+    }
+    .stage-locked {
+      fill: #6B7280;
+    }
+    @keyframes node-pulse {
+      0%, 100% { filter: drop-shadow(0 0 1px #22C55E); }
+      50% { filter: drop-shadow(0 0 4px #22C55E); }
+    }
+    .active-node {
+      animation: node-pulse 2s infinite;
+    }
+  </style>
+
+  <!-- Panel Border/Frame -->
+  <rect x="5" y="5" width="340" height="390" fill="#090715" stroke="#7C3AED" stroke-width="3" rx="8" filter="url(#neon-glow)" />
+  <rect x="10" y="10" width="330" height="380" fill="#0C0A1F" rx="5" />
+  
+  <!-- Corner studs -->
+  <rect x="8" y="8" width="4" height="4" fill="#E11D48" />
+  <rect x="338" y="8" width="4" height="4" fill="#E11D48" />
+  <rect x="8" y="388" width="4" height="4" fill="#E11D48" />
+  <rect x="338" y="388" width="4" height="4" fill="#E11D48" />
+
+  <!-- Panel Title -->
+  <text x="175" y="35" class="panel-title" font-size="16" text-anchor="middle" filter="url(#neon-glow)">SELECT STAGE</text>
+  <line x1="25" y1="45" x2="325" y2="45" stroke="#7C3AED" stroke-width="2" />
+
+  <!-- VERTICAL TOWER CHAIN -->
+  <path d="M 175 60 V 360" stroke="#1F1A3A" stroke-width="4" stroke-dasharray="8 8" />
+
+  <!-- 5. THE FUTURE (Locked, Top) -->
+  <g transform="translate(75, 60)">
+    <rect x="0" y="0" width="200" height="35" fill="#110E26" stroke="#4B5563" stroke-width="1.5" rx="4" />
+    <!-- Lock Icon -->
+    <rect x="15" y="14" width="8" height="6" fill="#6B7280" />
+    <path d="M 16 14 v -3 a 2 2 0 0 1 4 0 v 3" stroke="#6B7280" stroke-width="1" fill="none" />
+    <text x="100" y="21" class="stage-name stage-locked" text-anchor="middle">THE FUTURE</text>
+  </g>
+
+  <!-- 4. AI DUNGEON (Locked) -->
+  <g transform="translate(75, 120)">
+    <rect x="0" y="0" width="200" height="35" fill="#110E26" stroke="#4B5563" stroke-width="1.5" rx="4" />
+    <rect x="15" y="14" width="8" height="6" fill="#6B7280" />
+    <path d="M 16 14 v -3 a 2 2 0 0 1 4 0 v 3" stroke="#6B7280" stroke-width="1" fill="none" />
+    <text x="100" y="21" class="stage-name stage-locked" text-anchor="middle">AI DUNGEON</text>
+  </g>
+
+  <!-- 3. GITHUB CASTLE (Locked) -->
+  <g transform="translate(75, 180)">
+    <rect x="0" y="0" width="200" height="35" fill="#110E26" stroke="#4B5563" stroke-width="1.5" rx="4" />
+    <rect x="15" y="14" width="8" height="6" fill="#6B7280" />
+    <path d="M 16 14 v -3 a 2 2 0 0 1 4 0 v 3" stroke="#6B7280" stroke-width="1" fill="none" />
+    <text x="100" y="21" class="stage-name stage-locked" text-anchor="middle">GITHUB CASTLE</text>
+  </g>
+
+  <!-- 2. CODE CAVE (Locked) -->
+  <g transform="translate(75, 240)">
+    <rect x="0" y="0" width="200" height="35" fill="#110E26" stroke="#4B5563" stroke-width="1.5" rx="4" />
+    <rect x="15" y="14" width="8" height="6" fill="#6B7280" />
+    <path d="M 16 14 v -3 a 2 2 0 0 1 4 0 v 3" stroke="#6B7280" stroke-width="1" fill="none" />
+    <text x="100" y="21" class="stage-name stage-locked" text-anchor="middle">CODE CAVE</text>
+  </g>
+
+  <!-- 1. BEGINNER VILLAGE (Active/Completed, Bottom) -->
+  <g transform="translate(75, 300)" class="active-node">
+    <rect x="0" y="0" width="200" height="35" fill="#0D2D1B" stroke="#22C55E" stroke-width="2" rx="4" filter="url(#green-glow)" />
+    <!-- Flag Icon -->
+    <path d="M 15 10 v 16 M 15 10 h 10 v 6 h -10" stroke="#22C55E" stroke-width="1.5" fill="none" />
+    <circle cx="25" cy="13" r="2" fill="#E11D48" /> <!-- small red flag tip -->
+    <text x="110" y="21" class="stage-name stage-active" text-anchor="middle">BEGINNER VILLAGE</text>
+  </g>
+</svg>

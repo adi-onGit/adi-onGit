@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 60" width="100%" height="100%" shape-rendering="crispEdges">
+  <defs>
+    <filter id="neon-glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="2" result="blur" />
+      <feMerge>
+        <feMergeNode in="blur" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+  </defs>
+
+  <style>
+    .footer-text {
+      font-family: 'Courier New', Courier, monospace;
+      font-weight: 900;
+      font-size: 13px;
+      letter-spacing: 2px;
+    }
+    .insert-coin {
+      fill: #FF6B00;
+    }
+    .press-start {
+      fill: #22C55E;
+    }
+    .credits {
+      fill: #E5E7EB;
+    }
+    @keyframes blink-action {
+      0%, 49% { opacity: 1; }
+      50%, 100% { opacity: 0; }
+    }
+    .anim-blink {
+      animation: blink-action 1s steps(1) infinite;
+    }
+  </style>
+
+  <!-- Panel Border/Frame -->
+  <rect x="5" y="5" width="790" height="50" fill="#090715" stroke="#7C3AED" stroke-width="2.5" rx="6" filter="url(#neon-glow)" />
+  <rect x="10" y="10" width="780" height="40" fill="#0C0A1F" rx="4" />
+
+  <!-- Corner studs -->
+  <rect x="8" y="8" width="3" height="3" fill="#E11D48" />
+  <rect x="789" y="8" width="3" height="3" fill="#E11D48" />
+  <rect x="8" y="49" width="3" height="3" fill="#E11D48" />
+  <rect x="789" y="49" width="3" height="3" fill="#E11D48" />
+
+  <!-- LEFT: Credits counter -->
+  <text x="30" y="34" class="footer-text credits">CREDIT <tspan fill="#E11D48">99</tspan></text>
+
+  <!-- CENTER: Breathtaking Blinking "INSERT COIN" / "PRESS START" -->
+  <g class="anim-blink">
+    <text x="400" y="34" class="footer-text insert-coin" text-anchor="middle" filter="url(#neon-glow)">INSERT COIN TO PLAY</text>
+  </g>
+
+  <!-- RIGHT: Game Over / Player 1 indicator -->
+  <text x="770" y="34" class="footer-text press-start" text-anchor="end">PLAYER 1 READY</text>
+</svg>

@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="100%" height="100%" shape-rendering="crispEdges">
+  <defs>
+    <filter id="eye-glow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="0.75" result="blur" />
+      <feMerge>
+        <feMergeNode in="blur" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+  </defs>
+  <style>
+    @keyframes breathe-dragon {
+      0%, 100% { transform: translateY(0px) scaleY(1); }
+      50% { transform: translateY(-1px) scaleY(1.03); }
+    }
+    @keyframes blink-eyes {
+      0%, 90%, 100% { opacity: 1; }
+      93%, 97% { opacity: 0.1; }
+    }
+    .anim-dragon {
+      transform-origin: bottom center;
+      animation: breathe-dragon 4s ease-in-out infinite;
+    }
+    .anim-eyes {
+      animation: blink-eyes 6s infinite;
+    }
+  </style>
+
+  <!-- Dragon Silhouette -->
+  <g class="anim-dragon">
+    <!-- Coiled Body & Wings -->
+    <!-- Wing left -->
+    <path d="M 4 20 h 4 v 4 h -4 z M 8 16 h 6 v 4 h -6 z M 14 12 h 8 v 4 h -8 z M 22 10 h 6 v 2 h -6 z M 18 14 h 4 v 12 h -4 z M 12 18 h 4 v 14 h -4 z" fill="#140E26" />
+    <!-- Wing right -->
+    <path d="M 60 20 h -4 v 4 h 4 z M 56 16 h -6 v 4 h 6 z M 50 12 h -8 v 4 h 8 z M 42 10 h -6 v 2 h 6 z M 46 14 h -4 v 12 h 4 z M 52 18 h -4 v 14 h 4 z" fill="#140E26" />
+
+    <!-- Dragon Main Torso & Tail -->
+    <path d="
+      M 28 24 h 8 v 20 h -8 z
+      M 26 28 h 12 v 12 h -12 z
+      M 24 38 h 16 v 14 h -16 z
+      M 20 48 h 24 v 6 h -24 z
+      M 16 52 h 32 v 4 h -32 z
+      M 12 56 h 40 v 2 h -40 z
+    " fill="#0D091A" />
+    
+    <!-- Dragon Neck & Head -->
+    <path d="
+      M 30 14 h 4 v 10 h -4 z
+      M 28 8 h 8 v 6 h -8 z
+      M 26 4 h 12 v 4 h -12 z
+      M 24 6 h 2 v 2 h -2 z
+      M 38 6 h 2 v 2 h -2 z
+      M 25 10 h 2 v 4 h -2 z
+      M 37 10 h 2 v 4 h -2 z
+    " fill="#0D091A" />
+
+    <!-- Spine details (red accents) -->
+    <path d="M 31 16 h 2 v 2 h -2 z M 31 22 h 2 v 2 h -2 z M 31 28 h 2 v 2 h -2 z M 31 34 h 2 v 2 h -2 z" fill="#E11D48" />
+
+    <!-- Glowing Red Eyes -->
+    <g class="anim-eyes" filter="url(#eye-glow)">
+      <rect x="29" y="7" width="1.5" height="1" fill="#FF6B00" />
+      <rect x="33.5" y="7" width="1.5" height="1" fill="#FF6B00" />
+    </g>
+  </g>
+</svg>
